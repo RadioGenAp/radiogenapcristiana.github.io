@@ -1,0 +1,19 @@
+{
+  "short_name": "https://play.google.com/store/apps/details?id=genap.aphaz",
+  "name": "RadioGenApCristiana",
+  "icons": [
+    {
+      "src": "https://hola.eskuchame.com/favicon.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
+    }
+  ],
+  "description": "Radio App",
+  "start_url": "https://play.google.com/store/apps/details?id=genap.aphaz",
+  "scope": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#ffe100",
+  "background_color": "#ffe100"
+}
