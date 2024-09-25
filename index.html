@@ -47,6 +47,7 @@
             width: 100%; /* Hacer que la imagen se adapte al ancho del contenedor */
             height: auto; /* Mantener la proporción de la imagen */
             margin-bottom: 10px;
+            border-radius: 8px; /* Bordes redondeados para la imagen */
         }
 
         h2, h3 {
@@ -67,6 +68,7 @@
             margin: 0 10px;
             font-size: 24px;
             text-decoration: none;
+            color: #000; /* Color negro para los iconos */
         }
 
         .social-media-title {
@@ -85,7 +87,7 @@
             -webkit-appearance: none; /* Remove default styling */
             appearance: none;
             height: 8px; /* Altura de la barra */
-            background-color: rgba(0, 0, 0, 0.9); /* Color negro opaco */
+            background-color: rgba(0, 0, 0, 0.2); /* Color negro opaco */
             border-radius: 5px; /* Bordes redondeados */
             outline: none; /* Sin contorno al enfocarse */
             margin: 10px 0;
@@ -153,13 +155,12 @@
                 <a href="https://api.whatsapp.com/send?phone=+522361079311&text=Dios%20Les%20Bendiga%20?%C2%A1%20Tengo%20una%20petici%C3%B3n" target="_blank" class="whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://play.google.com/store/apps/details?id=radiogenap.cristiana&pcampaignid=web_share" target="_blank" class="app-btn android-icon"><i class="fab fa-android"></i></a>
             </div>
-            <!-- Añadir el copyright aquí -->
             <div class="copyright">
                 &copy; 2024 LuBuDesign. Todos los derechos reservados.
             </div>
         </div>
     </div>
-    
+
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script>
         $(document).ready(function() {
@@ -186,23 +187,25 @@
 
             // Control de volumen sin cambiar el color
             $('#range').on('input', function() {
-                $('#audio')[0].volume = $(this).val() / 100; 
+                var audio = $('#audio')[0]; 
+                audio.volume = this.value / 100; 
             });
 
-            // Actualizar el tiempo de duración del audio
-            var audio = $('#audio')[0];
-            audio.addEventListener('timeupdate', function() {
-                var duration = audio.duration;
-                var currentTime = audio.currentTime;
-                $('.start').text(formatTime(currentTime));
-                $('.end').text(formatTime(duration));
+            // Cambiar duración al cargar
+            $('#audio').on('loadedmetadata', function() {
+                $('.start').text(formatTime(0));
+                $('.end').text(formatTime(this.duration));
             });
 
-            // Función para formatear el tiempo
+            // Actualizar el tiempo actual
+            $('#audio').on('timeupdate', function() {
+                $('.start').text(formatTime(this.currentTime));
+            });
+
             function formatTime(seconds) {
                 var minutes = Math.floor(seconds / 60);
                 var seconds = Math.floor(seconds % 60);
-                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+                return minutes + ":" + (seconds < 10 ? '0' : '') + seconds; 
             }
         });
     </script>
