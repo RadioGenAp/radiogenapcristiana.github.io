@@ -15,7 +15,6 @@
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
-  overflow-x: hidden; /* Evitar el scroll horizontal */
 }
 
 img {
@@ -28,20 +27,20 @@ img {
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  flex-direction: column;
-  width: 100%;
-  max-width: 600px; /* Limita el ancho del contenedor */
-  padding: 20px;
+  flex-direction: column; /* Asegura que la barra esté encima del contenido */
+  width: 100%; /* Asegura que el contenedor use todo el ancho */
+  padding: 20px; /* Añadir padding para un espaciado interno */
+  overflow: hidden; /* Oculta el contenido que se desborda */
 }
 
 .black-bar {
   width: 100%;
-  height: 50px;
-  background-color: #333; /* Color gris oscuro */
+  height: 50px; /* Altura de la barra */
+  background-color: #333; /* Cambiado a un color gris oscuro */
 }
 
 .player {
-  width: 100%;
+  width: 100%; /* Cambiado para que el ancho sea relativo al contenedor */
   height: 780px;
   background-color: var(--background);
   display: flex;
@@ -51,17 +50,17 @@ img {
   border-radius: 12px;
   box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
     -9px -9px 16px rgba(255, 255, 255, 0.5);
-  transition: transform 0.2s;
+  transition: transform 0.2s; /* Agregar transición */
 }
 
 .player:hover {
-  transform: scale(1.02);
+  transform: scale(1.02); /* Efecto hover */
 }
 
 .player__controls {
   display: flex;
-  flex-wrap: wrap;
-  width: 95%;
+  flex-wrap: wrap; /* Permitir que los botones se reorganicen */
+  width: 100%; /* Asegurar que use todo el ancho disponible */
   justify-content: space-evenly;
   align-items: center;
   margin-bottom: 25px;
@@ -76,7 +75,7 @@ img {
   box-shadow: -8px -8px 20px 0px #fff9, -6px -6px 6px 0px #fff9,
     8px 8px 20px 0px #0001, 5px 5px 6px 0px #0001;
   color: var(--gray);
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color 0.3s, transform 0.3s; /* Transiciones */
 }
 
 .player__btn:active {
@@ -132,13 +131,13 @@ img {
   border: none;
   padding: 0;
   margin-top: 40px;
-  background: linear-gradient(to right, var(--accent-color) 0%, #d7dbdd 100%);
+  background: linear-gradient(to right, var(--accent-color) 0%, #d7dbdd 100%); /* Gradiente dinámico */
   height: 6px;
   border-radius: 3px;
 }
 
 .player__level::-webkit-slider-runnable-track {
-  background: transparent; 
+  background: transparent; /* El gradiente se establece en el contenedor */
   height: 6px;
   border-radius: 3px;
 }
@@ -146,7 +145,7 @@ img {
 .player__level::-webkit-slider-thumb {
   -webkit-appearance: none;
   border-radius: 100%;
-  background-color: var(--accent-color);
+  background-color: var(--accent-color); /* Color de volumen modificado */
   height: 18px;
   width: 18px;
   margin-top: -7px;
@@ -212,57 +211,57 @@ img {
 
 /* Estilos para los íconos de redes sociales */
 .youtube-icon i {
-  color: #ff0000; 
-  transition: color 0.3s; 
+  color: #ff0000; /* Color de YouTube */
+  transition: color 0.3s; /* Transición */
 }
 
 .youtube-icon:hover i {
-  color: darkred; 
+  color: darkred; /* Color oscuro al pasar el mouse */
 }
 
 .facebook-icon i {
-  color: #3b5998; 
-  transition: color 0.3s; 
+  color: #3b5998; /* Color de Facebook */
+  transition: color 0.3s; /* Transición */
 }
 
 .facebook-icon:hover i {
-  color: #2d4373; 
+  color: #2d4373; /* Color oscuro al pasar el mouse */
 }
 
 .twitter-icon i {
-  color: #1da1f2; 
-  transition: color 0.3s; 
+  color: #1da1f2; /* Color de Twitter */
+  transition: color 0.3s; /* Transición */
 }
 
 .twitter-icon:hover i {
-  color: #0a74b5; 
+  color: #0a74b5; /* Color oscuro al pasar el mouse */
 }
 
 .instagram-icon i {
-  color: #c32aa3; 
-  transition: color 0.3s; 
+  color: #c32aa3; /* Color de Instagram */
+  transition: color 0.3s; /* Transición */
 }
 
 .instagram-icon:hover i {
-  color: #a2287d; 
+  color: #a2287d; /* Color oscuro al pasar el mouse */
 }
 
 .linkedin-icon i {
-  color: #0077b5; 
-  transition: color 0.3s; 
+  color: #0077b5; /* Color de LinkedIn */
+  transition: color 0.3s; /* Transición */
 }
 
 .linkedin-icon:hover i {
-  color: #005582; 
+  color: #005582; /* Color oscuro al pasar el mouse */
 }
 
 .tiktok-icon i {
-  color: #69c9ef; 
-  transition: color 0.3s; 
+  color: #69c9ef; /* Color de TikTok */
+  transition: color 0.3s; /* Transición */
 }
 
 .tiktok-icon:hover i {
-  color: #3bb19c; 
+  color: #3bb19c; /* Color oscuro al pasar el mouse */
 }
 
 /* Estilo para el texto de copyright */
