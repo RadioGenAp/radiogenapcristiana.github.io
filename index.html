@@ -12,13 +12,16 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            overflow-x: hidden; /* Evitar scroll horizontal */
-            overflow-y: auto; /* Habilitar scroll vertical solo si es necesario */
+            overflow: hidden; /* Evitar scroll horizontal y vertical */
         }
 
         .container {
-            width: 100%; /* Cambiar a 100% para adaptarse al ancho de la pantalla */
-            margin: 0 auto; /* Centrar el contenedor */
+            width: 100vw; /* Cambiar a 100vw para cubrir el ancho total de la ventana */
+            height: 100vh; /* Asegurar que cubra toda la altura de la ventana */
+            display: flex; /* Usar flexbox para centrar el contenido */
+            flex-direction: column; /* Orientación vertical */
+            align-items: center; /* Centramos horizontalmente */
+            justify-content: center; /* Centramos verticalmente */
             padding: 20px; /* Espaciado interno */
             box-sizing: border-box; /* Incluye el padding en el ancho total */
             background-color: #fff; /* Color de fondo del contenedor */
@@ -183,10 +186,24 @@
 
             // Control de volumen sin cambiar el color
             $('#range').on('input', function() {
-                var audio = $('#audio')[0];
-                var currentVolume = this.value;
-                audio.volume = currentVolume / 100;
+                $('#audio')[0].volume = $(this).val() / 100; 
             });
+
+            // Actualizar el tiempo de duración del audio
+            var audio = $('#audio')[0];
+            audio.addEventListener('timeupdate', function() {
+                var duration = audio.duration;
+                var currentTime = audio.currentTime;
+                $('.start').text(formatTime(currentTime));
+                $('.end').text(formatTime(duration));
+            });
+
+            // Función para formatear el tiempo
+            function formatTime(seconds) {
+                var minutes = Math.floor(seconds / 60);
+                var seconds = Math.floor(seconds % 60);
+                return minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+            }
         });
     </script>
 </body>
