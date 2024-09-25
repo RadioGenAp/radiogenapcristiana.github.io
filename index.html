@@ -8,58 +8,53 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'>
     <link rel="stylesheet" href="./style.css">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            overflow: hidden; /* Evitar scroll horizontal y vertical */
+        .player__album {
+            text-align: center;
+            margin-bottom: 10px;
         }
-
-        .container {
-            width: 100vw; /* Cambiar a 100vw para cubrir el ancho total de la ventana */
-            height: 100vh; /* Asegurar que cubra toda la altura de la ventana */
-            display: flex; /* Usar flexbox para centrar el contenido */
-            flex-direction: column; /* Orientación vertical */
-            align-items: center; /* Centramos horizontalmente */
-            justify-content: center; /* Centramos verticalmente */
-            padding: 20px; /* Espaciado interno */
-            box-sizing: border-box; /* Incluye el padding en el ancho total */
-            background-color: #fff; /* Color de fondo del contenedor */
-            border-radius: 8px; /* Bordes redondeados */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        .player__album img {
+            max-width: 200px;
+            height: auto;
         }
-
+        .social-media {
+            text-align: center;
+            margin-top: 30px;
+            display: none;
+        }
+        .social-media a {
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+        }
+        .facebook-icon { color: #3b5998; }
+        .tiktok-icon { color: #69C9D0; }
+        .instagram-icon { color: #E1306C; }
+        .youtube-icon { color: red; }
+        .whatsapp-icon { color: #25D366; }
+        .social-media a:hover { opacity: 0.7; }
+        .social-media-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .hamburger {
+            cursor: pointer;
+            font-size: 30px;
+            position: absolute;
+            top: 40px;
+            left: 16px;
+            transform: translateY(-50%);
+        }
         .player {
             position: relative;
-            text-align: center; /* Centrar el texto en el reproductor */
-            margin-top: 20px; /* Espacio superior para el reproductor */
         }
 
-        .hamburger {
-            position: absolute; /* Cambiar a absoluto para que esté dentro del contenedor */
-            top: 20px; /* Espacio desde la parte superior */
-            left: 20px; /* Espacio desde la izquierda */
-            z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
-            cursor: pointer; /* Cambiar cursor al pasar sobre el menú */
-        }
-
-        .player__album img {
-            width: 100%; /* Hacer que la imagen se adapte al ancho del contenedor */
-            height: auto; /* Mantener la proporción de la imagen */
-            margin-bottom: 10px;
-            border-radius: 8px; /* Bordes redondeados para la imagen */
-        }
-
-        h2, h3 {
-            margin: 0; /* Quitar márgenes por defecto */
-        }
-
+        /* Estilo para la barra de volumen */
         .player__level {
-            width: 100%; /* Asegurar que la barra de volumen se ajuste al ancho del contenedor */
             -webkit-appearance: none; /* Remove default styling */
             appearance: none;
+            width: 100%;
             height: 8px; /* Altura de la barra */
-            background-color: rgba(0, 0, 0, 0.2); /* Color negro opaco */
+            background-color: rgba(0, 0, 0, 0.9); /* Color negro opaco */
             border-radius: 5px; /* Bordes redondeados */
             outline: none; /* Sin contorno al enfocarse */
             margin: 10px 0;
@@ -71,7 +66,7 @@
             appearance: none;
             width: 20px; /* Ancho del pulgar */
             height: 20px; /* Altura del pulgar */
-            background-color: rgba(0, 0, 0, 0.9); /* Color del pulgar */
+            background-color: rgba(0, 0, 0, 0.9);/* Color del pulgar */
             border-radius: 50%; /* Bordes redondeados */
             cursor: pointer; /* Cursor de puntero al pasar el mouse */
         }
@@ -83,30 +78,6 @@
             background-color: #000000; /* Color negro del pulgar */
             border-radius: 50%;
             cursor: pointer;
-        }
-
-        .social-media {
-            text-align: center;
-            margin-top: 30px;
-            display: none; /* Ocultar por defecto, se mostrará con el menú */
-        }
-
-        .social-media a {
-            margin: 0 10px;
-            font-size: 24px;
-            text-decoration: none;
-            color: #000; /* Color negro para los iconos */
-        }
-
-        .social-media-title {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-            margin-top: 20px; /* Espacio superior para el copyright */
-            text-align: center; /* Centrar el texto del copyright */
-            font-size: 12px; /* Tamaño de fuente más pequeño */
         }
     </style>
 </head>
@@ -151,12 +122,13 @@
                 <a href="https://api.whatsapp.com/send?phone=+522361079311&text=Dios%20Les%20Bendiga%20?%C2%A1%20Tengo%20una%20petici%C3%B3n" target="_blank" class="whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
                 <a href="https://play.google.com/store/apps/details?id=radiogenap.cristiana&pcampaignid=web_share" target="_blank" class="app-btn android-icon"><i class="fab fa-android"></i></a>
             </div>
+            <!-- Añadir el copyright aquí -->
             <div class="copyright">
                 &copy; 2024 LuBuDesign. Todos los derechos reservados.
             </div>
         </div>
     </div>
-
+    
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
     <script>
         $(document).ready(function() {
@@ -183,8 +155,9 @@
 
             // Control de volumen sin cambiar el color
             $('#range').on('input', function() {
-                var audio = $('#audio')[0]; 
-                audio.volume = this.value / 100; 
+                var audio = $('#audio')[0];
+                var currentVolume = this.value;
+                audio.volume = currentVolume / 100;
             });
         });
     </script>
