@@ -8,21 +8,6 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css'>
     <link rel="stylesheet" href="./style.css">
     <style>
-        body {
-            background-color: #f0f0f0; /* Fondo general de la página */
-            margin: 0; /* Elimina márgenes del body */
-            font-family: Arial, sans-serif; /* Fuente general */
-        }
-        .container {
-            position: relative; /* Para el posicionamiento de los elementos internos */
-            max-width: 400px; /* Limitar el ancho del reproductor */
-            margin: 20px auto; /* Centrar el reproductor en la página */
-            background-color: transparent; /* Fondo del reproductor transparente */
-            border-radius: 10px; /* Bordes redondeados */
-            box-shadow: none; /* Elimina la sombra para evitar el fondo blanco */
-            padding: 20px; /* Espacio interno */
-            overflow: hidden; /* Evita que el contenido se desborde */
-        }
         .player__album {
             text-align: center; /* Centra el contenido dentro de player__album */
             margin-bottom: 10px; /* Espacio inferior */
@@ -31,69 +16,53 @@
             max-width: 150px; /* Ajusta el tamaño máximo del logo */
             height: auto;
         }
-        .menu-hamburguesa {
-            cursor: pointer; /* Cambia el cursor al pasar sobre el ícono */
-            font-size: 24px; /* Tamaño del ícono de menú */
-            position: absolute; /* Posición absoluta para moverlo a la esquina */
-            top: 55px; /* Espacio desde la parte superior */
-            right: 60px; /* Espacio desde la derecha */
-            z-index: 10; /* Asegura que esté por encima de otros elementos */
-        }
         .social-media {
-            display: none; /* Oculta el menú de redes sociales por defecto */
-            position: absolute; /* Para posicionar los iconos de manera relativa al menú */
-            top: 528px; /* Espacio desde la parte superior del contenedor */
-            right: 80px; /* Ajustado a 4px al lado del logo */
             text-align: center; /* Centra los iconos de redes sociales */
-            padding: 10px; /* Espacio interior */
-            border-radius: 20px; /* Bordes redondeados */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto de elevación */
-            z-index: 9; /* Asegura que esté por encima del contenido, pero por debajo del menú hamburguesa */
+            margin-top: 30px; /* Aumenta el espacio superior para separación */
+            display: none; /* Ocultar por defecto */
         }
         .social-media a {
-            display: inline-block; /* Muestra cada enlace en línea */
-            margin: 5px; /* Espacio entre iconos */
+            margin: 0 10px; /* Espacio entre iconos */
             font-size: 24px; /* Tamaño de los iconos */
             text-decoration: none; /* Sin subrayado */
         }
         /* Estilos para los iconos de redes sociales */
-        .facebook-icon {
-            color: #3b5998; /* Color de Facebook */
-        }
-        .tiktok-icon {
-            color: #69C9D0; /* Color de TikTok */
-        }
-        .instagram-icon {
-            color: #E1306C; /* Color de Instagram */
-        }
-        .youtube-icon {
-            color: red; /* Cambia el color del icono de YouTube a rojo */
-        }
-        .whatsapp-icon {
-            color: #25D366; /* Color de WhatsApp */
-        }
+        .facebook-icon { color: #3b5998; }
+        .tiktok-icon { color: #69C9D0; }
+        .instagram-icon { color: #E1306C; }
+        .youtube-icon { color: red; }
+        .whatsapp-icon { color: #25D366; }
         /* Efecto hover para cambiar el color al pasar el mouse */
-        .social-media a:hover {
-            opacity: 0.7; /* Efecto de opacidad al pasar el mouse */
+        .social-media a:hover { opacity: 0.7; }
+        /* Estilo para el título de redes sociales */
+        .social-media-title {
+            font-size: 16px; /* Ajusta el tamaño según sea necesario */
+            margin-bottom: 10px; /* Espacio inferior para separación */
+        }
+        /* Estilo para el botón de hamburguesa */
+        .hamburger {
+            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+            font-size: 24px; /* Tamaño del botón */
+            position: absolute; /* Permite mover el botón */
+            top: 24px; /* Espacio superior ajustado a 20px */
+            left: 16px; /* Espacio a la izquierda ajustado a 16px */
+            transform: translateY(-50%); /* Ajusta la posición vertical si es necesario */
+        }
+        /* Estilo para el contenedor del reproductor */
+        .player {
+            position: relative; /* Necesario para posicionar elementos absolutos si se requieren */
         }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="menu-hamburguesa" id="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="social-media" id="social-media">
-            <a href="https://facebook.com/radiogenapcristiana" target="_blank" class="facebook-icon"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.tiktok.com/@radiogenapcristiana" target="_blank" class="tiktok-icon"><i class="fab fa-tiktok"></i></a>
-            <a href="https://www.instagram.com/radiogenapcristiana" target="_blank" class="instagram-icon"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.youtube.com/@luisbuenotv" target="_blank" class="youtube-icon"><i class="fab fa-youtube"></i></a>
-            <a href="https://api.whatsapp.com/send?phone=+522361079311&text=Dios%20Les%20Bendiga%20?%C2%A1%20Tengo%20una%20petici%C3%B3n" target="_blank" class="whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
-            <a href="https://play.google.com/store/apps/details?id=radiogenap.cristiana&pcampaignid=web_share" target="_blank" class="app-btn android-icon"><i class="fab fa-android"></i></a>
-        </div>
-
         <div class="player">
+            <!-- Botón de hamburguesa en la parte superior -->
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+
             <div class="player__album">
                 <img src="https://i.postimg.cc/8kxbv4NY/Logo-Gen-Ap.png" alt="Logo de Radio GenAp Cristiana" />
             </div>
@@ -103,8 +72,8 @@
 
             <input type="range" value="20" min="0" class="player__level" id="range" />
             <div class="audio-duration">
-                <div class="start">Vol -</div>
-                <div class="end">Vol +</div>
+                <div class="start"></div>
+                <div class="end"></div>
             </div>
 
             <audio class="player__audio" controls id="audio">
@@ -117,16 +86,25 @@
                     <i class="fas fa-stop stop-btn hide"></i>
                 </div>
             </div>
+
+            <!-- Sección de Redes Sociales debajo del botón de hamburguesa -->
+            <div class="social-media" id="social-media">
+                <h3 class="social-media-title">Síguenos en nuestras redes sociales</h3>
+                <a href="https://facebook.com/radiogenapcristiana" target="_blank" class="facebook-icon"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.tiktok.com/@radiogenapcristiana" target="_blank" class="tiktok-icon"><i class="fab fa-tiktok"></i></a>
+                <a href="https://www.instagram.com/radiogenapcristiana" target="_blank" class="instagram-icon"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/@luisbuenotv" target="_blank" class="youtube-icon"><i class="fab fa-youtube"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=+522361079311&text=Dios%20Les%20Bendiga%20?%C2%A1%20Tengo%20una%20petici%C3%B3n" target="_blank" class="whatsapp-icon"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://play.google.com/store/apps/details?id=radiogenap.cristiana&pcampaignid=web_share" target="_blank" class="app-btn android-icon"><i class="fab fa-android"></i></a>
+            </div>
         </div>
     </div>
     
     <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
-    <script src="./script.js"></script>
     <script>
-        // Script para alternar el menú hamburguesa
-        $(document).ready(function(){
-            $('#menu-toggle').click(function(){
-                $('#social-media').slideToggle(); // Alterna el menú de redes sociales
+        $(document).ready(function() {
+            $('#hamburger').click(function() {
+                $('#social-media').slideToggle(); // Alterna la visibilidad de las redes sociales
             });
         });
     </script>
