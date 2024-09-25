@@ -38,7 +38,7 @@ img {
 
 .player {
   width: 420px;
-  height: 700px;
+  height: 750px;
   background-color: var(--background);
   display: flex;
   flex-direction: column;
