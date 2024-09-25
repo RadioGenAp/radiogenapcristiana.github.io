@@ -40,7 +40,7 @@ img {
 }
 
 .player {
-  width: 90%; /* Cambiado para ser más responsivo */
+  width: 100%; /* Cambiado para ser más responsivo */
   max-width: 500px; /* Mantener el ancho máximo */
   height: 780px;
   background-color: var(--background);
