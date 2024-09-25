@@ -13,10 +13,11 @@
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
             overflow-x: hidden; /* Evitar scroll horizontal */
+            overflow-y: auto; /* Habilitar scroll vertical solo si es necesario */
         }
 
         .container {
-            max-width: 100%; /* Cambiar a 100% para adaptarse al ancho de la pantalla */
+            width: 100%; /* Cambiar a 100% para adaptarse al ancho de la pantalla */
             margin: 0 auto; /* Centrar el contenedor */
             padding: 20px; /* Espaciado interno */
             box-sizing: border-box; /* Incluye el padding en el ancho total */
@@ -32,7 +33,7 @@
         }
 
         .hamburger {
-            position: fixed; /* Mantener el menú en la parte superior */
+            position: absolute; /* Cambiar a absoluto para que esté dentro del contenedor */
             top: 20px; /* Espacio desde la parte superior */
             left: 20px; /* Espacio desde la izquierda */
             z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
