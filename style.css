@@ -29,7 +29,7 @@ img {
 }
 
 .player {
-  width: 300px;
+  width: 500px;
   height: 550px;
   background-color: var(--background);
   display: flex;
