@@ -37,8 +37,10 @@ img {
 }
 
 .player {
-  width: 200px;
-  height: 800px;
+  width: 100%; /* O un porcentaje como 80% */
+  max-width: 400px; /* Establece un máximo para evitar que sea demasiado ancho */
+  height: auto; /* Permite que la altura se ajuste automáticamente según el contenido */
+  min-height: 800px; /* Establece una altura mínima si es necesario */
   background-color: var(--background);
   display: flex;
   flex-direction: column;
