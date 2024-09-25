@@ -9,48 +9,43 @@
     <link rel="stylesheet" href="./style.css">
     <style>
         .player__album {
-            text-align: center; /* Centra el contenido dentro de player__album */
-            margin-bottom: 10px; /* Espacio inferior */
+            text-align: center;
+            margin-bottom: 10px;
         }
         .player__album img {
-            max-width: 150px; /* Ajusta el tamaño máximo del logo */
+            max-width: 150px;
             height: auto;
         }
         .social-media {
-            text-align: center; /* Centra los iconos de redes sociales */
-            margin-top: 30px; /* Aumenta el espacio superior para separación */
-            display: none; /* Ocultar por defecto */
+            text-align: center;
+            margin-top: 30px;
+            display: none;
         }
         .social-media a {
-            margin: 0 10px; /* Espacio entre iconos */
-            font-size: 24px; /* Tamaño de los iconos */
-            text-decoration: none; /* Sin subrayado */
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
         }
-        /* Estilos para los iconos de redes sociales */
         .facebook-icon { color: #3b5998; }
         .tiktok-icon { color: #69C9D0; }
         .instagram-icon { color: #E1306C; }
         .youtube-icon { color: red; }
         .whatsapp-icon { color: #25D366; }
-        /* Efecto hover para cambiar el color al pasar el mouse */
         .social-media a:hover { opacity: 0.7; }
-        /* Estilo para el título de redes sociales */
         .social-media-title {
-            font-size: 16px; /* Ajusta el tamaño según sea necesario */
-            margin-bottom: 10px; /* Espacio inferior para separación */
+            font-size: 16px;
+            margin-bottom: 10px;
         }
-        /* Estilo para el botón de hamburguesa */
         .hamburger {
-            cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
-            font-size: 24px; /* Tamaño del botón */
-            position: absolute; /* Permite mover el botón */
-            top: 24px; /* Espacio superior ajustado a 20px */
-            left: 16px; /* Espacio a la izquierda ajustado a 16px */
-            transform: translateY(-50%); /* Ajusta la posición vertical si es necesario */
+            cursor: pointer;
+            font-size: 24px;
+            position: absolute;
+            top: 24px;
+            left: 16px;
+            transform: translateY(-50%);
         }
-        /* Estilo para el contenedor del reproductor */
         .player {
-            position: relative; /* Necesario para posicionar elementos absolutos si se requieren */
+            position: relative;
         }
     </style>
 </head>
@@ -58,7 +53,6 @@
 <body>
     <div class="container">
         <div class="player">
-            <!-- Botón de hamburguesa en la parte superior -->
             <div class="hamburger" id="hamburger">
                 <i class="fas fa-bars"></i>
             </div>
@@ -68,7 +62,7 @@
             </div>
 
             <h2 class="player__artist">Radio GenAp Cristiana</h2>
-            <h3 class="player__song">Reproduciendo...</h3>
+            <h3 class="player__song" id="status">Pausado...</h3>
 
             <input type="range" value="20" min="0" max="100" class="player__level" id="range" />
             <div class="audio-duration">
@@ -87,7 +81,6 @@
                 </div>
             </div>
 
-            <!-- Sección de Redes Sociales debajo del botón de hamburguesa -->
             <div class="social-media" id="social-media">
                 <h3 class="social-media-title">Síguenos en nuestras redes sociales</h3>
                 <a href="https://facebook.com/radiogenapcristiana" target="_blank" class="facebook-icon"><i class="fab fa-facebook-f"></i></a>
@@ -104,27 +97,30 @@
     <script>
         $(document).ready(function() {
             $('#hamburger').click(function() {
-                $('#social-media').slideToggle(); // Alterna la visibilidad de las redes sociales
+                $('#social-media').slideToggle();
             });
 
             // Funcionalidad del botón de reproducción
             $('#play').click(function() {
-                var audio = $('#audio')[0]; // Obtiene el elemento de audio
+                var audio = $('#audio')[0]; 
+                var status = $('#status'); // Seleccionamos el elemento del status
                 if (audio.paused) {
-                    audio.play(); // Reproduce el audio
-                    $('.play-btn').addClass('hide'); // Oculta el ícono de play
-                    $('.stop-btn').removeClass('hide'); // Muestra el ícono de stop
+                    audio.play(); 
+                    $('.play-btn').addClass('hide'); 
+                    $('.stop-btn').removeClass('hide'); 
+                    status.text('Reproduciendo...'); // Cambiar a "Reproduciendo"
                 } else {
-                    audio.pause(); // Pausa el audio
-                    $('.play-btn').removeClass('hide'); // Muestra el ícono de play
-                    $('.stop-btn').addClass('hide'); // Oculta el ícono de stop
+                    audio.pause(); 
+                    $('.play-btn').removeClass('hide'); 
+                    $('.stop-btn').addClass('hide'); 
+                    status.text('Pausado...'); // Cambiar a "Pausado"
                 }
             });
 
             // Control de volumen
             $('#range').on('input', function() {
-                var audio = $('#audio')[0]; // Obtiene el elemento de audio
-                audio.volume = this.value / 100; // Ajusta el volumen
+                var audio = $('#audio')[0];
+                audio.volume = this.value / 100;
             });
         });
     </script>
