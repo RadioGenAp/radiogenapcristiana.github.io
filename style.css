@@ -37,7 +37,7 @@ img {
 }
 
 .player {
-  width: 500px;
+  width: 450px;
   height: 700px;
   background-color: var(--background);
   display: flex;
