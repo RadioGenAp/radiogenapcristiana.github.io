@@ -28,6 +28,15 @@
         .player {
             position: relative;
             text-align: center; /* Centrar el texto en el reproductor */
+            margin-top: 20px; /* Espacio superior para el reproductor */
+        }
+
+        .hamburger {
+            position: fixed; /* Mantener el menú en la parte superior */
+            top: 20px; /* Espacio desde la parte superior */
+            left: 20px; /* Espacio desde la izquierda */
+            z-index: 1000; /* Asegurarse de que esté por encima de otros elementos */
+            cursor: pointer; /* Cambiar cursor al pasar sobre el menú */
         }
 
         .player__album img {
@@ -47,7 +56,7 @@
         .social-media {
             text-align: center;
             margin-top: 30px;
-            display: none;
+            display: none; /* Ocultar por defecto, se mostrará con el menú */
         }
 
         .social-media a {
