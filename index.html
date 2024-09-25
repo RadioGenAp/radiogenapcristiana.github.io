@@ -56,34 +56,6 @@
 
         .player__level {
             width: 100%; /* Asegurar que la barra de volumen se ajuste al ancho del contenedor */
-        }
-
-        .social-media {
-            text-align: center;
-            margin-top: 30px;
-            display: none; /* Ocultar por defecto, se mostrará con el menú */
-        }
-
-        .social-media a {
-            margin: 0 10px;
-            font-size: 24px;
-            text-decoration: none;
-            color: #000; /* Color negro para los iconos */
-        }
-
-        .social-media-title {
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
-
-        .copyright {
-            margin-top: 20px; /* Espacio superior para el copyright */
-            text-align: center; /* Centrar el texto del copyright */
-            font-size: 12px; /* Tamaño de fuente más pequeño */
-        }
-
-        /* Estilo para la barra de volumen */
-        .player__level {
             -webkit-appearance: none; /* Remove default styling */
             appearance: none;
             height: 8px; /* Altura de la barra */
@@ -111,6 +83,30 @@
             background-color: #000000; /* Color negro del pulgar */
             border-radius: 50%;
             cursor: pointer;
+        }
+
+        .social-media {
+            text-align: center;
+            margin-top: 30px;
+            display: none; /* Ocultar por defecto, se mostrará con el menú */
+        }
+
+        .social-media a {
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            color: #000; /* Color negro para los iconos */
+        }
+
+        .social-media-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .copyright {
+            margin-top: 20px; /* Espacio superior para el copyright */
+            text-align: center; /* Centrar el texto del copyright */
+            font-size: 12px; /* Tamaño de fuente más pequeño */
         }
     </style>
 </head>
@@ -190,23 +186,6 @@
                 var audio = $('#audio')[0]; 
                 audio.volume = this.value / 100; 
             });
-
-            // Cambiar duración al cargar
-            $('#audio').on('loadedmetadata', function() {
-                $('.start').text(formatTime(0));
-                $('.end').text(formatTime(this.duration));
-            });
-
-            // Actualizar el tiempo actual
-            $('#audio').on('timeupdate', function() {
-                $('.start').text(formatTime(this.currentTime));
-            });
-
-            function formatTime(seconds) {
-                var minutes = Math.floor(seconds / 60);
-                var seconds = Math.floor(seconds % 60);
-                return minutes + ":" + (seconds < 10 ? '0' : '') + seconds; 
-            }
         });
     </script>
 </body>
