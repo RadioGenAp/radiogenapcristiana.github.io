@@ -37,10 +37,8 @@ img {
 }
 
 .player {
-  width: 100%; /* O un porcentaje como 80% */
-  max-width: 400px; /* Establece un máximo para evitar que sea demasiado ancho */
-  height: auto; /* Permite que la altura se ajuste automáticamente según el contenido */
-  min-height: 800px; /* Establece una altura mínima si es necesario */
+  width: 500px;
+  height: 780px;
   background-color: var(--background);
   display: flex;
   flex-direction: column;
@@ -78,10 +76,7 @@ img {
 
 .player__btn:active {
   box-shadow: inset -8px -8px 20px #fff9, inset -5px -5px 6px #fff9,
-    inset 8px 8px 20px #0003, inset 5px 5px 6px #0001;
-}
-
-
+    inset 8px 8px 20px #0003, inset 5px 5px 6px 0px #0001;
 }
 
 .player__btn--small {
@@ -264,3 +259,12 @@ img {
 .tiktok-icon:hover i {
   color: #3bb19c; /* Color oscuro al pasar el mouse */
 }
+
+/* Estilo para el texto de copyright */
+.copyright {
+  margin-top: 50px;
+  font-size: 0.8em;
+  color: #a1a1a1;
+  text-align: center;
+}
+
