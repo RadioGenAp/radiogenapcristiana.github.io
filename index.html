@@ -12,12 +12,14 @@
             margin: 0;
             font-family: Arial, sans-serif;
             background-color: #f4f4f4;
+            overflow-x: hidden; /* Evitar scroll horizontal */
         }
 
         .container {
-            max-width: 600px; /* Tamaño máximo del contenedor */
+            max-width: 100%; /* Cambiar a 100% para adaptarse al ancho de la pantalla */
             margin: 0 auto; /* Centrar el contenedor */
             padding: 20px; /* Espaciado interno */
+            box-sizing: border-box; /* Incluye el padding en el ancho total */
             background-color: #fff; /* Color de fondo del contenedor */
             border-radius: 8px; /* Bordes redondeados */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
@@ -29,7 +31,7 @@
         }
 
         .player__album img {
-            max-width: 100%; /* Hacer que la imagen se adapte al ancho del contenedor */
+            width: 100%; /* Hacer que la imagen se adapte al ancho del contenedor */
             height: auto; /* Mantener la proporción de la imagen */
             margin-bottom: 10px;
         }
